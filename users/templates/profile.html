@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+  <div class="content-section">
+    <div class="media">
+      <img class="rounded-circle account-img" src="{{ user.profile.image.url }}">
+      <div class="media-body">
+        <h2 class="account-heading">{{ user.username }}</h2>
+        <p class="text-secondary">{{ user.email }}</p>
+      </div>
+    </div>
+
+    <form method="POST" enctype="multipart/form-data">
+    <!--This enctype tag saves the uploaded image in the background-->
+      {% csrf_token %}
+
+      <fieldset class="form-group">
+        <legend class="border-bottom mb-4">Profile</legend>
+        {{uform|crispy }}
+        {{pform|crispy }}
+        <!--{{ form.as_p }}-->
+        <!-- .as_p method renders the ugly looking form into paragraphs.
+             i.e. it splits different fields of form separately. -->
+      </fieldset>
+
+      <div class="form-group">
+        <button class="btn btn-outline-info" type="submit">Update</button>
+
+      </div>
+
+    </form>
+
+  </div>
+{% endblock %}

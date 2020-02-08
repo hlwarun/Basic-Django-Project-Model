@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  {% for p in posts %}
+    <article class="media content-section">
+      <img class="rounded-circle article-img" src="{{ post.author.profile.image.url }}" alt="">
+      <!-- This line inserts image in the home page along with the post -->
+      <div class="media-body">
+        <div class="article-metadata">
+          <a class="mr-2" href="#">{{ p.author }}</a>
+          <small class="text-muted">{{ p.date_posted|date:'F d, Y, l, g:i a' }}</small>
+        </div>
+        <h2><a class="article-title" href="#">{{ p.title }}</a></h2>
+         <p class="article-content">{{ post.content }}</p>
+      </div>
+    </article>
+  {% endfor %}
+{%endblock%}

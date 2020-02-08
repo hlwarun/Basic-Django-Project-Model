@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content %}
+
+    <h4>You have been logged out of your account!</h4>
+    <div class="border-top pt-3">
+      <a class="ml-2" href="{% url 'login' %}">Login Back Again!</a>
+      <!--small is for small text and ml stands for margin left-->
+    </div>
+
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+  <div class="content-section">
+    <form method="POST">
+      {% csrf_token %}
+
+      <fieldset class="form-group">
+        <legend class="border-bottom mb-4">Join Now</legend>
+        {{form|crispy }}
+        <!--{{ form.as_p }}-->
+        <!-- .as_p method renders the ugly looking form into paragraphs.
+             i.e. it splits different fields of form separately. -->
+      </fieldset>
+
+      <div class="form-group">
+        <button class="btn btn-outline-info" type="submit">Sign Up</button>
+
+      </div>
+
+    </form>
+
+    <div class="border-top pt-3">
+      <small class="text-muted">Already Have An Account? <a class="ml-2" href="{% url 'login' %}">Log In</a></small>
+      <!--small is for small text and ml stands for margin left-->
+    </div>
+
+  </div>
+
+{% endblock %}
